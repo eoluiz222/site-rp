@@ -4,135 +4,282 @@ index.html
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>San Vitra RP — RP estilo GTA</title>
-  <meta name="description" content="San Vitra — RP estilo GTA. Faça seu personagem, junte-se a facções, viva sua história." />
+  <title>Bond Street RP — RP estilo GTA</title>
+  <meta name="description" content="Bond Street RP — RP estilo GTA. Entre no servidor, crie sua história e jogue intenso." />
   <style>
-    /* Reset simples */
-    * {box-sizing: border-box; margin:0; padding:0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
-    body {background: linear-gradient(180deg,#0f1724 0%, #071029 100%); color:#e6eef6; line-height:1.5;}
-    a {color:inherit; text-decoration:none;}
-    .container {max-width:1100px; margin:28px auto; padding:20px;}
-    header {display:flex; align-items:center; justify-content:space-between; gap:16px;}
-    .logo {font-weight:700; font-size:20px; letter-spacing:1px;}
-    nav a {margin-left:14px; font-weight:600; opacity:0.9;}
-    .hero {display:grid; grid-template-columns:1fr 420px; gap:30px; align-items:center; margin-top:28px;}
-    .card {background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.04); padding:20px; border-radius:12px; box-shadow:0 6px 30px rgba(2,6,23,0.6);}
-    h1 {font-size:34px; margin-bottom:10px;}
-    p.lead {color:#cfe6ff; opacity:0.95; margin-bottom:16px;}
-    .cta {display:flex; gap:10px; margin-top:12px;}
-    .btn {padding:12px 16px; border-radius:10px; font-weight:700; cursor:pointer; border:none;}
-    .btn-primary {background: #ff5a5f; color:white;}
-    .btn-outline {background:transparent; color:#cfe6ff; border:1px solid rgba(255,255,255,0.08);}
-    .sidebar {text-align:center;}
-    .sidebar img {width:100%; border-radius:8px; margin-bottom:10px;}
-    section {margin-top:22px; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px;}
-    .small {font-size:14px; color:#bcd7ff;}
-    footer {margin-top:26px; text-align:center; color:#98b7df; font-size:13px; padding-bottom:30px;}
-    ul.features {list-style:none; margin-top:8px;}
-    ul.features li {padding:8px 0; border-bottom:1px dashed rgba(255,255,255,0.03);}
-    .rules {white-space:pre-line;}
-    @media(max-width:880px){
-      .hero{grid-template-columns:1fr;}
-      nav {display:none;}
+    :root{
+      --bg:#071026; --card:#0e1a2b; --muted:#9fb6d6; --accent:#06e29a; --accent2:#ff6b6b;
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      --max:1100px;
     }
+    *{box-sizing:border-box;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;color:#e6eef6}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071026 0%, #031022 100%);overflow-y:scroll}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max);margin:0 auto;padding:28px}
+    header{position:sticky;top:0;backdrop-filter:blur(6px);background:linear-gradient(180deg, rgba(2,8,20,0.45), rgba(2,8,20,0.15));padding:10px;border-bottom:1px solid rgba(255,255,255,0.03);z-index:40}
+    .navwrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo img{width:46px;height:46px;border-radius:10px;object-fit:cover;filter:drop-shadow(0 6px 20px rgba(0,0,0,0.6))}
+    .brand{font-weight:800;letter-spacing:0.6px}
+    nav a{margin-left:16px;font-weight:600;opacity:0.9}
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:30px;align-items:start;margin-top:22px}
+    .hero-left{padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:18px;box-shadow:0 10px 40px rgba(2,6,23,0.7)}
+    h1{font-size:36px;margin:0 0 10px 0}
+    .lead{color:var(--muted);margin-bottom:18px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:12px 16px;border-radius:12px;font-weight:800;cursor:pointer;border:none}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#00d4ff);color:#062223}
+    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .card{background:var(--glass);padding:14px;border-radius:12px}
+    .sidebar{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:18px}
+    .sidebar img{width:100%;border-radius:10px;display:block;margin-bottom:10px}
+    .features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
+    .feature{padding:10px;border-radius:10px;background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.02)}
+    /* Sections */
+    section{margin-top:28px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .jobs{display:flex;gap:10px;flex-wrap:wrap}
+    .job{padding:12px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);font-weight:700}
+    /* Counters */
+    .kpi{display:flex;gap:18px;align-items:center}
+    .kpi .item{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;min-width:110px;text-align:center}
+    .kpi .num{font-size:22px;font-weight:900;color:var(--accent)}
+    /* FAQ */
+    .faq .q{padding:12px;border-radius:10px;background:rgba(255,255,255,0.02);cursor:pointer;margin-bottom:8px}
+    .faq .a{display:none;padding:12px;margin-top:8px;background:rgba(255,255,255,0.02);border-radius:8px;color:var(--muted)}
+    /* Footer */
+    footer{margin-top:30px;padding:24px;text-align:center;color:var(--muted);opacity:0.95}
+    /* Animations & responsive */
+    .reveal{opacity:0;transform:translateY(10px);transition:all .6s ease-out}
+    .reveal.show{opacity:1;transform:none}
+    @media(max-width:980px){.hero{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}.features{grid-template-columns:1fr}.navwrap{padding:6px}}
+    /* small helpers */
+    .muted{color:var(--muted);font-size:14px}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-weight:700}
+    /* modal */
+    .modal-bg{position:fixed;inset:0;background:rgba(2,8,20,0.6);display:flex;align-items:center;justify-content:center;z-index:200;opacity:0;pointer-events:none;transition:.2s}
+    .modal-bg.open{opacity:1;pointer-events:auto}
+    .modal{background:#081227;padding:20px;border-radius:12px;max-width:520px;width:92%;box-shadow:0 12px 60px rgba(1,6,20,0.8)}
+    .close{float:right;background:transparent;border:0;color:var(--muted);font-size:18px;cursor:pointer}
+    /* next: cool bg image */
+    .page-bg{position:fixed;right:0;top:0;width:50%;height:100%;background-image:url('logo.png');background-size:contain;background-repeat:no-repeat;background-position:center right;opacity:0.06;pointer-events:none;mix-blend-mode:screen}
+    /* header compact when scrolled */
+    header.shrink h1{font-size:18px}
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="logo">San Vitra RP</div>
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <header id="header">
+    <div class="container navwrap">
+      <div class="logo">
+        <img src="logo.png" alt="logo">
+        <div class="brand">Bond Street RP</div>
+      </div>
+
       <nav>
         <a href="#sobre">Sobre</a>
         <a href="#faccoes">Facções</a>
         <a href="#regras">Regras</a>
         <a href="#ficha">Ficha</a>
+        <a href="#" id="openDiscord">Entrar no Discord</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
+  <main class="container">
     <div class="hero">
-      <div class="card">
-        <h1>Bem-vindo à <span style="color:#ffd3b0">San Vitra</span></h1>
-        <p class="lead">Uma metrópole corrompida por gangues, policialismo e grandes corporações. Escolha seu caminho: crime, lei, empresário ou civil — aqui cada escolha tem consequência.</p>
-        <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn btn-primary" href="https://discord.gg/NC7PUh5dC2" target="_blank" rel="noopener">Entrar no Discord</a>
+      <div class="hero-left card reveal">
+        <h1>Bem-vindo à <span style="color:var(--accent)">Bond Street</span></h1>
+        <p class="lead">Uma metrópole sombria, cheia de oportunidades — e de riscos. Escolha seu caminho: polícia, gangue, empresário ou civil. Aqui cada escolha pesa.</p>
+
+        <div class="cta">
+          <button class="btn btn-primary" id="openDiscordBtn">Entrar no Discord</button>
           <a class="btn btn-outline" href="#ficha">Criar ficha</a>
         </div>
 
-        <section aria-label="Destaques" style="margin-top:18px;">
-          <div class="card small">
-            <strong>Roleplay intenso</strong>
-            <p class="small">Cenas realistas, consequências e histórias complexas.</p>
-          </div>
-          <div class="card small">
-            <strong>Facções e empregos</strong>
-            <p class="small">Polícia, Máfia, Gangues, Mecânico, EMS e mais.</p>
-          </div>
-          <div class="card small">
-            <strong>Economia e sistema</strong>
-            <p class="small">Trabalhos, roubos, lojas e progressão de personagem.</p>
-          </div>
-        </section>
+        <div class="features">
+          <div class="feature"><strong>Roleplay intenso</strong><div class="muted">Cenas realistas, consequências reais.</div></div>
+          <div class="feature"><strong>Facções & Empregos</strong><div class="muted">Polícia, Máfia, Gangues, EMS e mais.</div></div>
+          <div class="feature"><strong>Economia ativa</strong><div class="muted">Trabalhos, roubo, lojas, progressão.</div></div>
+          <div class="feature"><strong>Eventos semanais</strong><div class="muted">Missões e PvP com premiações.</div></div>
+        </div>
+
+        <div style="margin-top:18px" class="kpi">
+          <div class="item"><div class="num" data-to="320">0</div><div class="muted">Membros</div></div>
+          <div class="item"><div class="num" data-to="24">0</div><div class="muted">Facções</div></div>
+          <div class="item"><div class="num" data-to="12">0</div><div class="muted">Eventos/mês</div></div>
+        </div>
       </div>
 
-      <aside class="sidebar card">
-        <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="cidade">
-        <div style="text-align:left;">
-          <strong>Servidor:</strong>
-          <p class="small">População: 200+ | Eventos semanais | Staff ativo</p>
-          <ul class="features">
-            <li>Sistema de fichas</li>
-            <li>Facções ativas</li>
-            <li>Economia funcional</li>
-            <li>Eventos PvE/PvP</li>
-          </ul>
+      <aside class="sidebar reveal">
+        <img src="logo.png" alt="cidade">
+        <div><strong>Servidor:</strong></div>
+        <div class="muted">População: 200+ | Eventos semanais | Staff ativo</div>
+
+        <div style="margin-top:12px">
+          <div class="pill">Sistema de fichas</div>
+          <div class="pill" style="margin-left:8px">Economia funcional</div>
+        </div>
+
+        <div style="margin-top:16px">
+          <h4 class="muted">Cargos</h4>
+          <div class="jobs">
+            <div class="job">Polícia</div>
+            <div class="job">Máfia</div>
+            <div class="job">EMS</div>
+            <div class="job">Mecânico</div>
+            <div class="job">Civis</div>
+          </div>
         </div>
       </aside>
     </div>
 
-    <h2 id="sobre" style="margin-top:24px;">Sobre a cidade</h2>
-    <div class="card rules">
-      <p><strong>San Vitra</strong> — antigamente um porto próspero, hoje refúgio de grupos armados, políticos corruptos e corporações que controlam áreas da cidade. A justiça é um conceito flexível — por isso, escolha bem seus aliados.</p>
-    </div>
+    <section id="sobre" class="reveal">
+      <h2>Sobre a cidade</h2>
+      <div class="card" style="margin-top:10px">
+        <p><strong>Bond Street</strong> — antigamente um porto próspero, hoje controlada por corporações e facções. A justiça é negociável; suas escolhas te definem.</p>
+      </div>
+    </section>
 
-    <h2 id="faccoes" style="margin-top:16px;">Facções & Cargos</h2>
-    <div class="card">
-      <ul>
-        <li><strong>Polícia</strong> — investigação, patrulha e operações.</li>
-        <li><strong>Máfia San Vitra</strong> — roubo de bancos, contrabando.</li>
-        <li><strong>Los Sangres</strong> — controle de bairros e tráfico.</li>
-        <li><strong>Empresários</strong> — lojas, import/export e cobertura.</li>
-        <li><strong>Civis</strong> — empregos, missões e vida social.</li>
-      </ul>
-    </div>
+    <section id="faccoes" class="reveal">
+      <h2>Facções & Cargos</h2>
+      <div class="grid-3" style="margin-top:12px">
+        <div class="card">
+          <h3>Polícia</h3><p class="muted">Investigação, patrulha e operações táticas.</p>
+        </div>
+        <div class="card">
+          <h3>Máfia San Vitra</h3><p class="muted">Roubo de bancos, contrabando e lavagem.</p>
+        </div>
+        <div class="card">
+          <h3>Los Sangres</h3><p class="muted">Tráfico e controle de bairros.</p>
+        </div>
+      </div>
+    </section>
 
-    <h2 id="regras" style="margin-top:16px;">Regras rápidas (RP)</h2>
-    <div class="card rules">
-      1) Proibido metagaming.  
-      2) Proibido powergaming.  
-      3) Respeite cenas iniciadas por outros.  
-      4) Sem RDM/VDM (matar/atropelar sem motivo).  
-      5) Respeito entre jogadores e staff.  
-      6) Fichas verdadeiras e coerentes com o mundo.
-    </div>
+    <section id="regras" class="reveal">
+      <h2>Regras rápidas (RP)</h2>
+      <div class="card" style="margin-top:10px">
+        <ol style="padding-left:18px">
+          <li>Proibido metagaming.</li>
+          <li>Proibido powergaming.</li>
+          <li>Respeite cenas iniciadas por outros.</li>
+          <li>Sem RDM/VDM (matar/atropelar sem motivo).</li>
+          <li>Respeito entre jogadores e staff.</li>
+        </ol>
+      </div>
+    </section>
 
-    <h2 id="ficha" style="margin-top:16px;">Ficha de Personagem</h2>
-    <div class="card">
-      <p class="small">Preencha essa ficha e envie no canal <code>#fichas-de-personagem</code> do Discord.</p>
-      <pre style="background:rgba(0,0,0,0.25); padding:12px; border-radius:8px;">
+    <section id="ficha" class="reveal">
+      <h2>Ficha de Personagem</h2>
+      <div class="card" style="margin-top:10px">
+        <p class="muted">Preencha e envie no canal <code>#fichas-de-personagem</code> do Discord.</p>
+        <pre style="background:rgba(0,0,0,0.25);padding:12px;border-radius:8px;">
 **Nome do personagem:**
 **Idade:**
 **Profissão:**
 **História curta (2-3 parágrafos):**
 **Personalidade:**
 **Fotos/opcional:**
-</pre>
-    </div>
+        </pre>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <h2>Perguntas frequentes</h2>
+      <div class="faq" style="margin-top:10px">
+        <div class="q">Como eu me inscrevo pra polícia?</div>
+        <div class="a">Abra uma aplicação no canal <code>#recrutamento</code> e siga as instruções do staff.</div>
+
+        <div class="q">O que é RDM/VDM?</div>
+        <div class="a">RDM = matar sem razão RP; VDM = atropelar sem motivo. Ambos proibidos.</div>
+      </div>
+    </section>
 
     <footer>
-      <p>Pronto para lançar? Suba esse arquivo no GitHub Pages ou Netlify e troque o link do botão "Entrar no Discord".</p>
-      <p class="small">© San Vitra RP — Use com responsabilidade. </p>
+      <div class="muted">© Bond Street RP — Feito com <span style="color:var(--accent)">amor</span> e muito roleplay.</div>
+      <div style="margin-top:8px"><a href="https://eoluiz222.github.io/site-rp/">Atualizar página</a></div>
     </footer>
+  </main>
+
+  <!-- Modal for Discord -->
+  <div id="discordModal" class="modal-bg" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button class="close" id="closeModal">✕</button>
+      <h3>Entrar no Discord</h3>
+      <p class="muted">Clique no botão abaixo para abrir o convite do servidor.</p>
+      <div style="margin-top:12px">
+        <!-- REPLACE LINK BELOW with your real invite -->
+        <a id="discordInvite" class="btn btn-primary" href="https://discord.gg/SEU_INVITE_AQUI" target="_blank" rel="noopener">Abrir convite</a>
+        <button class="btn btn-outline" id="copyInvite" style="margin-left:10px">Copiar link</button>
+      </div>
+    </div>
   </div>
+
+  <script>
+    /* Smooth reveal on scroll */
+    const reveals = document.querySelectorAll('.reveal');
+    const inView = el => {
+      const rect = el.getBoundingClientRect();
+      return rect.top < window.innerHeight - 60;
+    };
+    function checkReveal(){
+      reveals.forEach(r => { if(inView(r)) r.classList.add('show'); });
+    }
+    window.addEventListener('scroll', checkReveal);
+    checkReveal();
+
+    /* Counters */
+    function animateCounters(){
+      document.querySelectorAll('.num').forEach(el=>{
+        const to = parseInt(el.dataset.to||0,10);
+        let start = 0;
+        const step = Math.ceil(to/80);
+        const iv = setInterval(()=>{
+          start += step;
+          if(start >= to){ el.textContent = to; clearInterval(iv); }
+          else el.textContent = start;
+        },12);
+      });
+    }
+    animateCounters();
+
+    /* FAQ accordion */
+    document.querySelectorAll('.faq .q').forEach(q=>{
+      q.addEventListener('click', ()=> {
+        const a = q.nextElementSibling;
+        const open = a.style.display === 'block';
+        document.querySelectorAll('.faq .a').forEach(x=>x.style.display='none');
+        a.style.display = open ? 'none' : 'block';
+      });
+    });
+
+    /* Modal open/close + copy */
+    const modal = document.getElementById('discordModal');
+    document.getElementById('openDiscord').addEventListener('click', e=>{ e.preventDefault(); modal.classList.add('open');});
+    document.getElementById('openDiscordBtn').addEventListener('click', ()=> modal.classList.add('open'));
+    document.getElementById('closeModal').addEventListener('click', ()=> modal.classList.remove('open'));
+    document.getElementById('copyInvite').addEventListener('click', async ()=>{
+      const link = document.getElementById('discordInvite').href;
+      try{ await navigator.clipboard.writeText(link); alert('Link copiado!'); }
+      catch{ prompt('Copie o link manualmente:', link); }
+    });
+
+    /* shrink header on scroll */
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', ()=> {
+      if(window.scrollY > 40) header.classList.add('shrink'); else header.classList.remove('shrink');
+    });
+
+    /* smooth scroll for anchors */
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const target = document.querySelector(a.getAttribute('href'));
+        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
+      });
+    });
+  </script>
 </body>
 </html>
 
