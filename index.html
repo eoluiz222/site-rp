@@ -1,286 +1,286 @@
-index.html
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Bond Street RP — RP estilo GTA</title>
-  <meta name="description" content="Bond Street RP — RP estilo GTA. Entre no servidor, crie sua história e jogue intenso." />
-  <style>
-    :root{
-      --bg:#071026; --card:#0e1a2b; --muted:#9fb6d6; --accent:#06e29a; --accent2:#ff6b6b;
-      --glass: rgba(255,255,255,0.04);
-      --radius:14px;
-      --max:1100px;
-    }
-    *{box-sizing:border-box;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;color:#e6eef6}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071026 0%, #031022 100%);overflow-y:scroll}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:var(--max);margin:0 auto;padding:28px}
-    header{position:sticky;top:0;backdrop-filter:blur(6px);background:linear-gradient(180deg, rgba(2,8,20,0.45), rgba(2,8,20,0.15));padding:10px;border-bottom:1px solid rgba(255,255,255,0.03);z-index:40}
-    .navwrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .logo{display:flex;align-items:center;gap:12px}
-    .logo img{width:46px;height:46px;border-radius:10px;object-fit:cover;filter:drop-shadow(0 6px 20px rgba(0,0,0,0.6))}
-    .brand{font-weight:800;letter-spacing:0.6px}
-    nav a{margin-left:16px;font-weight:600;opacity:0.9}
-    .hero{display:grid;grid-template-columns:1fr 380px;gap:30px;align-items:start;margin-top:22px}
-    .hero-left{padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:18px;box-shadow:0 10px 40px rgba(2,6,23,0.7)}
-    h1{font-size:36px;margin:0 0 10px 0}
-    .lead{color:var(--muted);margin-bottom:18px}
-    .cta{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{padding:12px 16px;border-radius:12px;font-weight:800;cursor:pointer;border:none}
-    .btn-primary{background:linear-gradient(90deg,var(--accent),#00d4ff);color:#062223}
-    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
-    .card{background:var(--glass);padding:14px;border-radius:12px}
-    .sidebar{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:18px}
-    .sidebar img{width:100%;border-radius:10px;display:block;margin-bottom:10px}
-    .features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
-    .feature{padding:10px;border-radius:10px;background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.02)}
-    /* Sections */
-    section{margin-top:28px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .jobs{display:flex;gap:10px;flex-wrap:wrap}
-    .job{padding:12px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);font-weight:700}
-    /* Counters */
-    .kpi{display:flex;gap:18px;align-items:center}
-    .kpi .item{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;min-width:110px;text-align:center}
-    .kpi .num{font-size:22px;font-weight:900;color:var(--accent)}
-    /* FAQ */
-    .faq .q{padding:12px;border-radius:10px;background:rgba(255,255,255,0.02);cursor:pointer;margin-bottom:8px}
-    .faq .a{display:none;padding:12px;margin-top:8px;background:rgba(255,255,255,0.02);border-radius:8px;color:var(--muted)}
-    /* Footer */
-    footer{margin-top:30px;padding:24px;text-align:center;color:var(--muted);opacity:0.95}
-    /* Animations & responsive */
-    .reveal{opacity:0;transform:translateY(10px);transition:all .6s ease-out}
-    .reveal.show{opacity:1;transform:none}
-    @media(max-width:980px){.hero{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}.features{grid-template-columns:1fr}.navwrap{padding:6px}}
-    /* small helpers */
-    .muted{color:var(--muted);font-size:14px}
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-weight:700}
-    /* modal */
-    .modal-bg{position:fixed;inset:0;background:rgba(2,8,20,0.6);display:flex;align-items:center;justify-content:center;z-index:200;opacity:0;pointer-events:none;transition:.2s}
-    .modal-bg.open{opacity:1;pointer-events:auto}
-    .modal{background:#081227;padding:20px;border-radius:12px;max-width:520px;width:92%;box-shadow:0 12px 60px rgba(1,6,20,0.8)}
-    .close{float:right;background:transparent;border:0;color:var(--muted);font-size:18px;cursor:pointer}
-    /* next: cool bg image */
-    .page-bg{position:fixed;right:0;top:0;width:50%;height:100%;background-image:url('logo.png');background-size:contain;background-repeat:no-repeat;background-position:center right;opacity:0.06;pointer-events:none;mix-blend-mode:screen}
-    /* header compact when scrolled */
-    header.shrink h1{font-size:18px}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Membros — UP RP</title>
+<style>
+  body{font-family:Inter,system-ui,Arial;background:#060b18;color:#e9f0ff;padding:20px;}
+  .wrap{max-width:980px;margin:0 auto;}
+  input,button,textarea,select{padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:#0c152b;color:inherit;}
+  button{cursor:pointer;background:#0099ff;font-weight:600;}
+  button:hover{background:#00b7ff;}
+  .members{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:12px;}
+  .card{background:#0e1a33;padding:14px;border-radius:12px;box-shadow:0 0 10px #0004;}
+  .muted{color:#aabbcc;font-size:13px;}
+  .badge{background:#00ff88;color:#041017;padding:4px 8px;border-radius:999px;font-weight:800;font-size:12px;}
+  hr{border:0;border-top:1px solid #1a2a44;margin:20px 0;}
+  .hidden{display:none;}
+</style>
 </head>
+
 <body>
-  <div class="page-bg" aria-hidden="true"></div>
+<div class="wrap">
+<h1>Membros — UP RP</h1>
+<p class="muted">Gerenciamento de jogadores, IDs e cargos. Seguro e conectado ao banco Supabase.</p>
 
-  <header id="header">
-    <div class="container navwrap">
-      <div class="logo">
-        <img src="logo.png" alt="logo">
-        <div class="brand">Bond Street RP</div>
-      </div>
+<!-- LOGIN / REGISTRO -->
+<div id="authBox">
+  <input id="email" placeholder="Email" />
+  <input id="password" type="password" placeholder="Senha" />
+  <button id="signupBtn">Registrar</button>
+  <button id="signinBtn">Entrar</button>
+</div>
 
-      <nav>
-        <a href="#sobre">Sobre</a>
-        <a href="#faccoes">Facções</a>
-        <a href="#regras">Regras</a>
-        <a href="#ficha">Ficha</a>
-        <a href="#" id="openDiscord">Entrar no Discord</a>
-      </nav>
-    </div>
-  </header>
+<button id="logoutBtn" class="hidden">Sair</button>
 
-  <main class="container">
-    <div class="hero">
-      <div class="hero-left card reveal">
-        <h1>Bem-vindo à <span style="color:var(--accent)">Bond Street</span></h1>
-        <p class="lead">Uma metrópole sombria, cheia de oportunidades — e de riscos. Escolha seu caminho: polícia, gangue, empresário ou civil. Aqui cada escolha pesa.</p>
+<!-- PERFIL DO USUÁRIO -->
+<div id="profileBox" class="hidden">
+  <h2>Meu Perfil</h2>
+  <p class="muted" id="myPublicId"></p>
 
-        <div class="cta">
-          <button class="btn btn-primary" id="openDiscordBtn">Entrar no Discord</button>
-          <a class="btn btn-outline" href="#ficha">Criar ficha</a>
-        </div>
+  <input id="displayName" placeholder="Nome público" />
+  <input id="username" placeholder="username único" />
+  <input id="avatar" placeholder="URL da foto" />
+  <textarea id="bio" rows="3" placeholder="Bio"></textarea>
 
-        <div class="features">
-          <div class="feature"><strong>Roleplay intenso</strong><div class="muted">Cenas realistas, consequências reais.</div></div>
-          <div class="feature"><strong>Facções & Empregos</strong><div class="muted">Polícia, Máfia, Gangues, EMS e mais.</div></div>
-          <div class="feature"><strong>Economia ativa</strong><div class="muted">Trabalhos, roubo, lojas, progressão.</div></div>
-          <div class="feature"><strong>Eventos semanais</strong><div class="muted">Missões e PvP com premiações.</div></div>
-        </div>
+  <button id="saveProfile">Salvar Perfil</button>
+</div>
 
-        <div style="margin-top:18px" class="kpi">
-          <div class="item"><div class="num" data-to="320">0</div><div class="muted">Membros</div></div>
-          <div class="item"><div class="num" data-to="24">0</div><div class="muted">Facções</div></div>
-          <div class="item"><div class="num" data-to="12">0</div><div class="muted">Eventos/mês</div></div>
-        </div>
-      </div>
+<hr/>
 
-      <aside class="sidebar reveal">
-        <img src="logo.png" alt="cidade">
-        <div><strong>Servidor:</strong></div>
-        <div class="muted">População: 200+ | Eventos semanais | Staff ativo</div>
+<!-- FILTROS -->
+<h2>Lista de Membros</h2>
+<div style="display:flex;gap:10px;align-items:center;">
+  <input id="search" placeholder="Pesquisar nome ou username" style="flex:1;" />
+  <select id="filterRole">
+    <option value="">Todos os cargos</option>
+  </select>
+  <button id="refresh">Atualizar</button>
+</div>
 
-        <div style="margin-top:12px">
-          <div class="pill">Sistema de fichas</div>
-          <div class="pill" style="margin-left:8px">Economia funcional</div>
-        </div>
+<div id="membersList" class="members"></div>
 
-        <div style="margin-top:16px">
-          <h4 class="muted">Cargos</h4>
-          <div class="jobs">
-            <div class="job">Polícia</div>
-            <div class="job">Máfia</div>
-            <div class="job">EMS</div>
-            <div class="job">Mecânico</div>
-            <div class="job">Civis</div>
-          </div>
-        </div>
-      </aside>
-    </div>
+<hr/>
 
-    <section id="sobre" class="reveal">
-      <h2>Sobre a cidade</h2>
-      <div class="card" style="margin-top:10px">
-        <p><strong>Bond Street</strong> — antigamente um porto próspero, hoje controlada por corporações e facções. A justiça é negociável; suas escolhas te definem.</p>
-      </div>
-    </section>
+<!-- PAINEL STAFF -->
+<div id="staffPanel" class="hidden">
+  <h2>Painel Staff</h2>
+  <p class="muted">Somente Moderadores, Staff, Admin e SuperAdmin veem isso.</p>
+  <div id="staffActions"></div>
+</div>
 
-    <section id="faccoes" class="reveal">
-      <h2>Facções & Cargos</h2>
-      <div class="grid-3" style="margin-top:12px">
-        <div class="card">
-          <h3>Polícia</h3><p class="muted">Investigação, patrulha e operações táticas.</p>
-        </div>
-        <div class="card">
-          <h3>Máfia San Vitra</h3><p class="muted">Roubo de bancos, contrabando e lavagem.</p>
-        </div>
-        <div class="card">
-          <h3>Los Sangres</h3><p class="muted">Tráfico e controle de bairros.</p>
-        </div>
-      </div>
-    </section>
+</div>
 
-    <section id="regras" class="reveal">
-      <h2>Regras rápidas (RP)</h2>
-      <div class="card" style="margin-top:10px">
-        <ol style="padding-left:18px">
-          <li>Proibido metagaming.</li>
-          <li>Proibido powergaming.</li>
-          <li>Respeite cenas iniciadas por outros.</li>
-          <li>Sem RDM/VDM (matar/atropelar sem motivo).</li>
-          <li>Respeito entre jogadores e staff.</li>
-        </ol>
-      </div>
-    </section>
+<!-- SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const supabase = supabaseJs.createClient(
+  "https://ekiaqwvmemwazinytrws.supabase.co",
+  "sb_publishable_TpK5G8o2V7-CXieaIeuK_wuvt4tWO"
+);
 
-    <section id="ficha" class="reveal">
-      <h2>Ficha de Personagem</h2>
-      <div class="card" style="margin-top:10px">
-        <p class="muted">Preencha e envie no canal <code>#fichas-de-personagem</code> do Discord.</p>
-        <pre style="background:rgba(0,0,0,0.25);padding:12px;border-radius:8px;">
-**Nome do personagem:**
-**Idade:**
-**Profissão:**
-**História curta (2-3 parágrafos):**
-**Personalidade:**
-**Fotos/opcional:**
-        </pre>
-      </div>
-    </section>
+// ELEMENTOS
+const emailEl = document.getElementById('email');
+const passEl = document.getElementById('password');
+const signupBtn = document.getElementById('signupBtn');
+const signinBtn = document.getElementById('signinBtn');
+const logoutBtn = document.getElementById('logoutBtn');
+const profileBox = document.getElementById('profileBox');
+const displayNameEl = document.getElementById('displayName');
+const usernameEl = document.getElementById('username');
+const avatarEl = document.getElementById('avatar');
+const bioEl = document.getElementById('bio');
+const saveProfile = document.getElementById('saveProfile');
+const myPublicIdEl = document.getElementById('myPublicId');
+const membersList = document.getElementById('membersList');
+const searchEl = document.getElementById('search');
+const filterRole = document.getElementById('filterRole');
+const staffPanel = document.getElementById('staffPanel');
+const staffActions = document.getElementById('staffActions');
 
-    <section class="reveal">
-      <h2>Perguntas frequentes</h2>
-      <div class="faq" style="margin-top:10px">
-        <div class="q">Como eu me inscrevo pra polícia?</div>
-        <div class="a">Abra uma aplicação no canal <code>#recrutamento</code> e siga as instruções do staff.</div>
+// REGISTRO
+signupBtn.onclick = async () => {
+  const { error } = await supabase.auth.signUp({
+    email: emailEl.value,
+    password: passEl.value
+  });
+  if(error) return alert(error.message);
+  alert("Conta criada! Agora faça login.");
+};
 
-        <div class="q">O que é RDM/VDM?</div>
-        <div class="a">RDM = matar sem razão RP; VDM = atropelar sem motivo. Ambos proibidos.</div>
-      </div>
-    </section>
+// LOGIN
+signinBtn.onclick = async () => {
+  const { error } = await supabase.auth.signInWithPassword({
+    email: emailEl.value,
+    password: passEl.value
+  });
+  if(error) return alert(error.message);
+  initUser();
+};
 
-    <footer>
-      <div class="muted">© Bond Street RP — Feito com <span style="color:var(--accent)">amor</span> e muito roleplay.</div>
-      <div style="margin-top:8px"><a href="https://eoluiz222.github.io/site-rp/">Atualizar página</a></div>
-    </footer>
-  </main>
+// LOGOUT
+logoutBtn.onclick = async () => {
+  await supabase.auth.signOut();
+  location.reload();
+};
 
-  <!-- Modal for Discord -->
-  <div id="discordModal" class="modal-bg" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true">
-      <button class="close" id="closeModal">✕</button>
-      <h3>Entrar no Discord</h3>
-      <p class="muted">Clique no botão abaixo para abrir o convite do servidor.</p>
-      <div style="margin-top:12px">
-        <!-- REPLACE LINK BELOW with your real invite -->
-        <a id="discordInvite" class="btn btn-primary" href="https://discord.gg/SEU_INVITE_AQUI" target="_blank" rel="noopener">Abrir convite</a>
-        <button class="btn btn-outline" id="copyInvite" style="margin-left:10px">Copiar link</button>
-      </div>
-    </div>
-  </div>
+// APÓS LOGIN
+async function initUser(){
+  const { data } = await supabase.auth.getUser();
+  if(!data.user) return;
 
-  <script>
-    /* Smooth reveal on scroll */
-    const reveals = document.querySelectorAll('.reveal');
-    const inView = el => {
-      const rect = el.getBoundingClientRect();
-      return rect.top < window.innerHeight - 60;
-    };
-    function checkReveal(){
-      reveals.forEach(r => { if(inView(r)) r.classList.add('show'); });
-    }
-    window.addEventListener('scroll', checkReveal);
-    checkReveal();
+  logoutBtn.classList.remove("hidden");
+  signupBtn.classList.add("hidden");
+  signinBtn.classList.add("hidden");
 
-    /* Counters */
-    function animateCounters(){
-      document.querySelectorAll('.num').forEach(el=>{
-        const to = parseInt(el.dataset.to||0,10);
-        let start = 0;
-        const step = Math.ceil(to/80);
-        const iv = setInterval(()=>{
-          start += step;
-          if(start >= to){ el.textContent = to; clearInterval(iv); }
-          else el.textContent = start;
-        },12);
-      });
-    }
-    animateCounters();
+  let { data: row } = await supabase.from("members")
+    .select("*")
+    .eq("id", data.user.id)
+    .single();
 
-    /* FAQ accordion */
-    document.querySelectorAll('.faq .q').forEach(q=>{
-      q.addEventListener('click', ()=> {
-        const a = q.nextElementSibling;
-        const open = a.style.display === 'block';
-        document.querySelectorAll('.faq .a').forEach(x=>x.style.display='none');
-        a.style.display = open ? 'none' : 'block';
-      });
+  // cria perfil se não existir
+  if(!row){
+    await supabase.from("members").insert({
+      id: data.user.id,
+      username: data.user.email.split("@")[0],
+      display_name: data.user.email.split("@")[0]
     });
 
-    /* Modal open/close + copy */
-    const modal = document.getElementById('discordModal');
-    document.getElementById('openDiscord').addEventListener('click', e=>{ e.preventDefault(); modal.classList.add('open');});
-    document.getElementById('openDiscordBtn').addEventListener('click', ()=> modal.classList.add('open'));
-    document.getElementById('closeModal').addEventListener('click', ()=> modal.classList.remove('open'));
-    document.getElementById('copyInvite').addEventListener('click', async ()=>{
-      const link = document.getElementById('discordInvite').href;
-      try{ await navigator.clipboard.writeText(link); alert('Link copiado!'); }
-      catch{ prompt('Copie o link manualmente:', link); }
-    });
+    let r2 = await supabase.from("members")
+      .select("*")
+      .eq("id", data.user.id)
+      .single();
+    row = r2.data;
+  }
 
-    /* shrink header on scroll */
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', ()=> {
-      if(window.scrollY > 40) header.classList.add('shrink'); else header.classList.remove('shrink');
-    });
+  fillProfile(row);
+  profileBox.classList.remove("hidden");
 
-    /* smooth scroll for anchors */
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', (e)=>{
-        const target = document.querySelector(a.getAttribute('href'));
-        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
-      });
-    });
-  </script>
+  checkStaff(row.role);
+  loadMembers();
+}
+
+// MOSTRAR PERFIL
+function fillProfile(row){
+  displayNameEl.value = row.display_name || "";
+  usernameEl.value = row.username || "";
+  avatarEl.value = row.avatar_url || "";
+  bioEl.value = row.bio || "";
+  myPublicIdEl.innerHTML = `ID Público: <b>${row.public_id}</b>`;
+}
+
+// SALVAR PERFIL
+saveProfile.onclick = async () => {
+  const { data: userData } = await supabase.auth.getUser();
+  const { error } = await supabase.from("members").update({
+    display_name: displayNameEl.value,
+    username: usernameEl.value,
+    avatar_url: avatarEl.value,
+    bio: bioEl.value
+  }).eq("id", userData.user.id);
+
+  if(error) return alert(error.message);
+  alert("Perfil atualizado!");
+  loadMembers();
+};
+
+// CARREGAR LISTA
+async function loadMembers(){
+  let q = supabase.from("members").select("*").order("public_id");
+
+  if(searchEl.value){
+    q = q.or(`username.ilike.%${searchEl.value}%,display_name.ilike.%${searchEl.value}%`);
+  }
+
+  if(filterRole.value){
+    q = q.eq("role", filterRole.value);
+  }
+
+  const { data, error } = await q;
+  if(error) return;
+
+  renderMembers(data);
+  updateRoleFilter(data);
+}
+
+// RENDERIZAR CARDS
+function renderMembers(list){
+  membersList.innerHTML = "";
+  list.forEach(m => {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <strong>${m.display_name}</strong> <span class="muted">#${m.public_id}</span><br>
+      <span class="muted">@${m.username}</span><br>
+      <span class="badge">${m.role}</span>
+      <p class="muted">${m.bio || ""}</p>
+      <div id="actions-${m.id}"></div>
+    `;
+    membersList.appendChild(div);
+    renderStaffActions(m);
+  });
+}
+
+// STAFF
+function checkStaff(role){
+  if(["mod","staff","admin","superadmin"].includes(role)){
+    staffPanel.classList.remove("hidden");
+  }
+}
+
+async function renderStaffActions(member){
+  const session = (await supabase.auth.getSession()).data.session;
+  if(!session) return;
+
+  const { data: me } = await supabase
+    .from("members")
+    .select("role")
+    .eq("id", session.user.id)
+    .single();
+
+  if(!["mod","staff","admin","superadmin"].includes(me.role)) return;
+
+  const box = document.getElementById("actions-"+member.id);
+  box.innerHTML = `
+    <button onclick="banUser('${member.id}')">Banir</button>
+    <select onchange="changeRole('${member.id}', this.value)">
+      <option value="">cargo...</option>
+      <option value="player">player</option>
+      <option value="member">member</option>
+      <option value="mod">mod</option>
+      <option value="staff">staff</option>
+      <option value="admin">admin</option>
+    </select>
+  `;
+}
+
+// BANIR
+async function banUser(id){
+  if(!confirm("Banir usuário?")) return;
+  await supabase.from("members").delete().eq("id", id);
+  loadMembers();
+}
+
+// MUDAR CARGO
+async function changeRole(id, role){
+  await supabase.from("members").update({ role }).eq("id", id);
+  loadMembers();
+}
+
+// FILTROS
+searchEl.oninput = ()=>loadMembers();
+filterRole.onchange = ()=>loadMembers();
+document.getElementById('refresh').onclick = ()=>loadMembers();
+
+// AUTOLOGIN
+(async ()=>{
+  const s = (await supabase.auth.getSession()).data.session;
+  if(s) initUser();
+})();
+</script>
 </body>
 </html>
+
 
 
