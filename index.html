@@ -1,0 +1,139 @@
+index.html
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>San Vitra RP — RP estilo GTA</title>
+  <meta name="description" content="San Vitra — RP estilo GTA. Faça seu personagem, junte-se a facções, viva sua história." />
+  <style>
+    /* Reset simples */
+    * {box-sizing: border-box; margin:0; padding:0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+    body {background: linear-gradient(180deg,#0f1724 0%, #071029 100%); color:#e6eef6; line-height:1.5;}
+    a {color:inherit; text-decoration:none;}
+    .container {max-width:1100px; margin:28px auto; padding:20px;}
+    header {display:flex; align-items:center; justify-content:space-between; gap:16px;}
+    .logo {font-weight:700; font-size:20px; letter-spacing:1px;}
+    nav a {margin-left:14px; font-weight:600; opacity:0.9;}
+    .hero {display:grid; grid-template-columns:1fr 420px; gap:30px; align-items:center; margin-top:28px;}
+    .card {background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.04); padding:20px; border-radius:12px; box-shadow:0 6px 30px rgba(2,6,23,0.6);}
+    h1 {font-size:34px; margin-bottom:10px;}
+    p.lead {color:#cfe6ff; opacity:0.95; margin-bottom:16px;}
+    .cta {display:flex; gap:10px; margin-top:12px;}
+    .btn {padding:12px 16px; border-radius:10px; font-weight:700; cursor:pointer; border:none;}
+    .btn-primary {background: #ff5a5f; color:white;}
+    .btn-outline {background:transparent; color:#cfe6ff; border:1px solid rgba(255,255,255,0.08);}
+    .sidebar {text-align:center;}
+    .sidebar img {width:100%; border-radius:8px; margin-bottom:10px;}
+    section {margin-top:22px; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px;}
+    .small {font-size:14px; color:#bcd7ff;}
+    footer {margin-top:26px; text-align:center; color:#98b7df; font-size:13px; padding-bottom:30px;}
+    ul.features {list-style:none; margin-top:8px;}
+    ul.features li {padding:8px 0; border-bottom:1px dashed rgba(255,255,255,0.03);}
+    .rules {white-space:pre-line;}
+    @media(max-width:880px){
+      .hero{grid-template-columns:1fr;}
+      nav {display:none;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">San Vitra RP</div>
+      <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#faccoes">Facções</a>
+        <a href="#regras">Regras</a>
+        <a href="#ficha">Ficha</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <div class="card">
+        <h1>Bem-vindo à <span style="color:#ffd3b0">San Vitra</span></h1>
+        <p class="lead">Uma metrópole corrompida por gangues, policialismo e grandes corporações. Escolha seu caminho: crime, lei, empresário ou civil — aqui cada escolha tem consequência.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btn-primary" href="https://discord.gg/SEU_INVITE_AQUI" target="_blank" rel="noopener">Entrar no Discord</a>
+          <a class="btn btn-outline" href="#ficha">Criar ficha</a>
+        </div>
+
+        <section aria-label="Destaques" style="margin-top:18px;">
+          <div class="card small">
+            <strong>Roleplay intenso</strong>
+            <p class="small">Cenas realistas, consequências e histórias complexas.</p>
+          </div>
+          <div class="card small">
+            <strong>Facções e empregos</strong>
+            <p class="small">Polícia, Máfia, Gangues, Mecânico, EMS e mais.</p>
+          </div>
+          <div class="card small">
+            <strong>Economia e sistema</strong>
+            <p class="small">Trabalhos, roubos, lojas e progressão de personagem.</p>
+          </div>
+        </section>
+      </div>
+
+      <aside class="sidebar card">
+        <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="cidade">
+        <div style="text-align:left;">
+          <strong>Servidor:</strong>
+          <p class="small">População: 200+ | Eventos semanais | Staff ativo</p>
+          <ul class="features">
+            <li>Sistema de fichas</li>
+            <li>Facções ativas</li>
+            <li>Economia funcional</li>
+            <li>Eventos PvE/PvP</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <h2 id="sobre" style="margin-top:24px;">Sobre a cidade</h2>
+    <div class="card rules">
+      <p><strong>San Vitra</strong> — antigamente um porto próspero, hoje refúgio de grupos armados, políticos corruptos e corporações que controlam áreas da cidade. A justiça é um conceito flexível — por isso, escolha bem seus aliados.</p>
+    </div>
+
+    <h2 id="faccoes" style="margin-top:16px;">Facções & Cargos</h2>
+    <div class="card">
+      <ul>
+        <li><strong>Polícia</strong> — investigação, patrulha e operações.</li>
+        <li><strong>Máfia San Vitra</strong> — roubo de bancos, contrabando.</li>
+        <li><strong>Los Sangres</strong> — controle de bairros e tráfico.</li>
+        <li><strong>Empresários</strong> — lojas, import/export e cobertura.</li>
+        <li><strong>Civis</strong> — empregos, missões e vida social.</li>
+      </ul>
+    </div>
+
+    <h2 id="regras" style="margin-top:16px;">Regras rápidas (RP)</h2>
+    <div class="card rules">
+      1) Proibido metagaming.  
+      2) Proibido powergaming.  
+      3) Respeite cenas iniciadas por outros.  
+      4) Sem RDM/VDM (matar/atropelar sem motivo).  
+      5) Respeito entre jogadores e staff.  
+      6) Fichas verdadeiras e coerentes com o mundo.
+    </div>
+
+    <h2 id="ficha" style="margin-top:16px;">Ficha de Personagem</h2>
+    <div class="card">
+      <p class="small">Preencha essa ficha e envie no canal <code>#fichas-de-personagem</code> do Discord.</p>
+      <pre style="background:rgba(0,0,0,0.25); padding:12px; border-radius:8px;">
+**Nome do personagem:**
+**Idade:**
+**Profissão:**
+**História curta (2-3 parágrafos):**
+**Personalidade:**
+**Fotos/opcional:**
+</pre>
+    </div>
+
+    <footer>
+      <p>Pronto para lançar? Suba esse arquivo no GitHub Pages ou Netlify e troque o link do botão "Entrar no Discord".</p>
+      <p class="small">© San Vitra RP — Use com responsabilidade. </p>
+    </footer>
+  </div>
+</body>
+</html>
+
+
