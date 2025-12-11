@@ -80,7 +80,12 @@
 /* ==========================
    SUPABASE CLIENT
 ========================== */
-const supabase = supabase.createClient(
+// usa um nome diferente para a variável cliente para não sobrescrever/entrar em TDZ
+const sb = window.supabase.createClient(
+  "https://ekiaqwvmemwazinytrws.supabase.co",
+  "sb_publishable_TpK5G8o2V7-CXieaIeuK_wuvt4tWO"
+);
+
   "https://ekiaqwvmemwazinytrws.supabase.co",
   "sb_publishable_TpK5G8o2V7-CXieaIeuK_wuvt4tWO"
 );
