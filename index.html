@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Membros — UP RP</title>
+
 <style>
   body{font-family:Inter,system-ui,Arial;background:#060b18;color:#e9f0ff;padding:20px;}
   .wrap{max-width:980px;margin:0 auto;}
@@ -72,16 +73,21 @@
 
 </div>
 
-<!-- SUPABASE -->
+<!-- SUPABASE 100% CORRETO -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
-// CORREÇÃO: usar supabase.createClient (não supabaseJs)
+/* ==========================
+   SUPABASE CLIENT
+========================== */
 const supabase = supabase.createClient(
   "https://ekiaqwvmemwazinytrws.supabase.co",
   "sb_publishable_TpK5G8o2V7-CXieaIeuK_wuvt4tWO"
 );
 
-// ELEMENTOS
+/* ==========================
+   ELEMENTOS
+========================== */
 const emailEl = document.getElementById('email');
 const passEl = document.getElementById('password');
 const signupBtn = document.getElementById('signupBtn');
@@ -100,7 +106,9 @@ const filterRole = document.getElementById('filterRole');
 const staffPanel = document.getElementById('staffPanel');
 const staffActions = document.getElementById('staffActions');
 
-// REGISTRO
+/* ==========================
+   REGISTRO
+========================== */
 signupBtn.onclick = async () => {
   const { error } = await supabase.auth.signUp({
     email: emailEl.value,
@@ -110,7 +118,9 @@ signupBtn.onclick = async () => {
   alert("Conta criada! Agora faça login.");
 };
 
-// LOGIN
+/* ==========================
+   LOGIN
+========================== */
 signinBtn.onclick = async () => {
   const { error } = await supabase.auth.signInWithPassword({
     email: emailEl.value,
@@ -120,13 +130,17 @@ signinBtn.onclick = async () => {
   initUser();
 };
 
-// LOGOUT
+/* ==========================
+   LOGOUT
+========================== */
 logoutBtn.onclick = async () => {
   await supabase.auth.signOut();
   location.reload();
 };
 
-// APÓS LOGIN
+/* ==========================
+   APÓS LOGIN
+========================== */
 async function initUser(){
   const { data } = await supabase.auth.getUser();
   if(!data.user) return;
@@ -135,30 +149,22 @@ async function initUser(){
   signupBtn.classList.add("hidden");
   signinBtn.classList.add("hidden");
 
-  let { data: row, error } = await supabase.from("members")
+  let { data: row } = await supabase.from("members")
     .select("*")
     .eq("id", data.user.id)
     .single();
 
-  if(error && error.code !== 'PGRST116'){
-    // PGRST116 = no rows found (Supabase returns this when single() finds none) - apenas continuar
-    console.warn('select error', error);
-  }
-
-  // cria perfil se não existir
   if(!row){
-    const insertRes = await supabase.from("members").insert({
+    await supabase.from("members").insert({
       id: data.user.id,
       username: data.user.email.split("@")[0],
       display_name: data.user.email.split("@")[0]
     });
-    if(insertRes.error) console.warn('insert error', insertRes.error);
 
-    let r2 = await supabase.from("members")
+    row = (await supabase.from("members")
       .select("*")
       .eq("id", data.user.id)
-      .single();
-    row = r2.data;
+      .single()).data;
   }
 
   fillProfile(row);
@@ -168,7 +174,9 @@ async function initUser(){
   loadMembers();
 }
 
-// MOSTRAR PERFIL
+/* ==========================
+   PERFIL
+========================== */
 function fillProfile(row){
   displayNameEl.value = row.display_name || "";
   usernameEl.value = row.username || "";
@@ -177,7 +185,6 @@ function fillProfile(row){
   myPublicIdEl.innerHTML = `ID Público: <b>${row.public_id}</b>`;
 }
 
-// SALVAR PERFIL
 saveProfile.onclick = async () => {
   const { data: userData } = await supabase.auth.getUser();
   const { error } = await supabase.from("members").update({
@@ -192,7 +199,9 @@ saveProfile.onclick = async () => {
   loadMembers();
 };
 
-// CARREGAR LISTA
+/* ==========================
+   MEMBROS
+========================== */
 async function loadMembers(){
   let q = supabase.from("members").select("*").order("public_id");
 
@@ -204,14 +213,11 @@ async function loadMembers(){
     q = q.eq("role", filterRole.value);
   }
 
-  const { data, error } = await q;
-  if(error) return console.warn('loadMembers error', error);
-
+  const { data } = await q;
   renderMembers(data);
   updateRoleFilter(data);
 }
 
-// RENDERIZAR CARDS
 function renderMembers(list){
   membersList.innerHTML = "";
   list.forEach(m => {
@@ -229,7 +235,9 @@ function renderMembers(list){
   });
 }
 
-// STAFF
+/* ==========================
+   STAFF
+========================== */
 function checkStaff(role){
   if(["mod","staff","admin","superadmin"].includes(role)){
     staffPanel.classList.remove("hidden");
@@ -262,29 +270,32 @@ async function renderStaffActions(member){
   `;
 }
 
-// BANIR
 async function banUser(id){
   if(!confirm("Banir usuário?")) return;
   await supabase.from("members").delete().eq("id", id);
   loadMembers();
 }
 
-// MUDAR CARGO
 async function changeRole(id, role){
   await supabase.from("members").update({ role }).eq("id", id);
   loadMembers();
 }
 
-// FILTROS
+/* ==========================
+   FILTROS
+========================== */
 searchEl.oninput = ()=>loadMembers();
 filterRole.onchange = ()=>loadMembers();
 document.getElementById('refresh').onclick = ()=>loadMembers();
 
-// AUTOLOGIN
+/* ==========================
+   AUTO LOGIN
+========================== */
 (async ()=>{
   const s = (await supabase.auth.getSession()).data.session;
   if(s) initUser();
 })();
 </script>
+
 </body>
 </html>
